@@ -1,0 +1,42 @@
+Git
+---
+
+working directory -> nuestro directorio de trabajo
+staging area -> lugar donde se va aguardando/listando los archivos 
+repository -> lugar de almacenamiento
+
+git init: 'voy a empezar a utilizar git'
+
+git add <file> : poder pasar los archivos del working directory al staging area
+git add . : pasar todos los archivos...
+git status: ver el estado de los archivos (donde estan)
+
+--> 
+identificacion del usuario
+git config --global user.email "ldelgado2711@gmail.com"
+git config --global user.name "Luis D"
+<--
+
+git commit: pasar del staging area al repository
+git commit -m "mensaje...." : hacer el commit sin entrar al editor feo ese
+
+git log: para ver los commits que hemos creado
+
+git checkout --nombre archivo:
+para revertir los cambios de los archivos
+
+git diff nombre archivo:
+para ver las diferencias hechas en los archivos
+
+git branch NOMBRE
+crear otra rama
+
+git checkout NOMBRE_BRAND
+Se pasa a esa nueva Rama
+
+
+
+git push: subir a un repositorio/servidor remoto 
+git pull: traer los cambios que hayan hecho otros desarrolladores si es un trabajo en equipo
+git clone: hacer copia del computador central a nuestra compu
+
