@@ -1,23 +1,44 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react';
 
 function App() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [isLogged,setIsLogged] = useState(false);
+
+  const handleFormSubmit = (event) => {
+    event.preventDefault(); // evento se detiene no actualiza la pagina
+    setIsLogged(true);
+
+    alert(`Usuario: ${email} - Password: ${password}`);
+  }
+
+  const handleEmailChange = ({ target: { value } }) => { // (event)
+    // console.log(event.target.type);
+    // const {value} = event.target;
+    // setEmail(event.target.value);
+    setEmail(value);
+  }
+
+  const handlePasswordChange = ({ target: { value } }) => setPassword(value);
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <form onSubmit={handleFormSubmit}>
+        <h2>Iniciar Sesión</h2>
+        <label>
+          Correo
+          <input type="email" value={email} onChange={handleEmailChange} />
+        </label>
+        <label>
+          Contraseña
+          <input type="password" value={password} onChange={handlePasswordChange} />
+        </label>
+        <button type="submit">Ingresar</button>
+      </form>
+
+      {/* Renderizado condicional */}
+      {isLogged && <h2>Logueado exitosamente!</h2>}
     </div>
   );
 }
